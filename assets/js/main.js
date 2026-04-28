@@ -71,26 +71,35 @@ const swiperHome = new Swiper('.home__swiper', {
     slidesPerView: 1,
     spaceBetween: 10,
     loop: true,
+    
+    // TAMBAHKAN INI (dalam milidetik)
+    speed: 1500, // Ini durasi transisi perpindahan fotonya (1.5 detik) agar smooth
+
     autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-    effect: 'fade',
-  pagination: {
-    el: '.home .swiper-pagination',
-    clickable: true,
-    renderBullet: (index, className) => {
-          return '<span class="' + className + '">' + String(index + 1).padStart(2, '0') + "</span>";
-        },
-  },
-  on: {
-    init: function(){
-        syncThemeColor(this)
+        delay: 7000, // Ini durasi nunggu di setiap slide (5 detik)
+        disableOnInteraction: false,
     },
-    slideChange: function(){
-        syncThemeColor(this)
+    
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true // Biar transisi antar gambar nggak tumpang tindih aneh
+    },
+
+    pagination: {
+        el: '.home .swiper-pagination',
+        clickable: true,
+        renderBullet: (index, className) => {
+            return '<span class="' + className + '">' + String(index + 1).padStart(2, '0') + "</span>";
+        },
+    },
+    on: {
+        init: function(){
+            syncThemeColor(this)
+        },
+        slideChange: function(){
+            syncThemeColor(this)
+        }
     }
-  }
 })
 
 /*=============== GSAP ANIMATION ===============*/

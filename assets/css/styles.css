@@ -31,6 +31,7 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+  --z-whatsapp: 500;
 }
 
 /*========== Responsive typography ==========*/
@@ -267,6 +268,26 @@ z-index: var(--z-fixed);
   font-size: var(--biggest-font-size);
 }
 
+.home__title::after {
+  content: ""; /* Isinya kosong */
+  position: absolute;
+  right: -15px; /* Jarak kursor dari akhir teks SALON */
+  top: 50%;
+  transform: translateY(-50%); /* Biar vertikalnya di tengah teks */
+  width: 4px; /* Lebar kursor putih lu */
+  height: 80%; /* Tinggi kursor, buat 80% dari tinggi teks biar gak kepanjangan */
+  background-color: white; /* Warna garis putih */
+  
+  /* --- BAGIAN INI UNTUK ANIMASI KEDIP --- */
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Definisi Gerakan Animasi Kedip */
+@keyframes blink-caret {
+  from, to { background-color: transparent; } /* Garis ilang */
+  50% { background-color: white; } /* Garis muncul */
+}
+
 .home__img{
   max-width: initial;
   width: 400px;
@@ -421,6 +442,7 @@ z-index: var(--z-fixed);
   margin-bottom: 2rem;
   max-width: 500px;
   margin-inline: auto;
+  font-style: italic;
 }
 
 .about__img{
@@ -776,19 +798,19 @@ z-index: var(--z-fixed);
 /*=============== WHATSAPP BUTTON ===============*/
 .whatsapp-button {
   position: fixed;
-  left: 1rem;
+  left: 2rem;
   bottom: 5rem;
   background-color: #25D366; /* WhatsApp Green */
   padding: .6rem;
   border-radius: 50%;
   display: inline-flex;
-  z-index: var(--z-fixed);
+  z-index: var(--z-whatsapp);
   transition: transform .4s;
   position: relative; /* Needed for tooltip positioning */
 }
 
 .whatsapp-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.4);
 }
 
 .whatsapp-button i {
@@ -1169,6 +1191,12 @@ z-index: var(--z-fixed);
     /* Pindahkan form ke kolom kiri (latar aktif) */
     order: 1;
   }
+}
+
+/* Definisi Gerakan Animasi Kedip */
+@keyframes blink-caret {
+  from, to { background-color: transparent; } /* Garis ilang */
+  50% { background-color: white; } /* Garis muncul */
 }
 
 /* For mobile color correction */
