@@ -31,7 +31,6 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
-  --z-whatsapp: 500;
 }
 
 /*========== Responsive typography ==========*/
@@ -798,23 +797,23 @@ z-index: var(--z-fixed);
 /*=============== WHATSAPP BUTTON ===============*/
 .whatsapp-button {
   position: fixed;
-  left: 2rem;
+  left: 1rem;
   bottom: 5rem;
   background-color: #25D366; /* WhatsApp Green */
   padding: .6rem;
   border-radius: 50%;
   display: inline-flex;
-  z-index: var(--z-whatsapp);
+  z-index: var(--z-fixed);
   transition: transform .4s;
   position: relative; /* Needed for tooltip positioning */
 }
 
 .whatsapp-button:hover {
-  transform: scale(1.4);
+  transform: scale(1.1);
 }
 
 .whatsapp-button i {
-  font-size: 1.3rem;
+  font-size: 3rem;
   color: var(--white-color);
 }
 
@@ -882,13 +881,22 @@ z-index: var(--z-fixed);
   text-align: center;
 }
 
-.footer__logo{
-  justify-content: center;
+.footer__logo {
+  display: flex;            /* Aktifkan flexbox */
+  justify-content: center;   /* Geser konten ke tengah secara horizontal */
+  align-items: center;       /* Jaga agar tetap sejajar secara vertikal */
   margin-bottom: 1rem;
+  width: 100%;               /* Pastikan pembungkusnya selebar layar/kontainer */
+}
+
+.footer__logo img {
+  width: 100px;              /* Ukuran sesuai permintaan lu */
+  height: auto;              /* Biar rasionya nggak penyok */
 }
 
 .footer__description {
   color: hsl(0, 0%, 60%);
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -1208,6 +1216,10 @@ z-index: var(--z-fixed);
   /* Hide WhatsApp tooltip on mobile to prevent layout issues */
   .whatsapp-button__tooltip {
     display: none;
+  }
+  .whatsapp-button i {
+    font-size: 1.2rem;
+    color: var(--white-color);
   }
 }
 
